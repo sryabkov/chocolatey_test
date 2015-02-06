@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>Mdsol_NewRelic</id>
+    <title>Mdsol NewRelic</title>
+    <version>1.0.0</version>
+    <authors>Arsen</authors>
+    <owners>Medidata</owners>
+    <summary>To install NewRelic</summary>
+    <description>Will install NewRelic on a target machine</description>
+    <projectUrl>http://www.mdsol.com</projectUrl>
+    <tags>some tags here</tags>
+    <!--licenseUrl></licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance -->
+    <!--iconUrl></iconUrl-->
+  </metadata>
+   <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
