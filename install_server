@@ -72,3 +72,7 @@ choco windowsfeatures SmbDirect
 choco windowsfeatures SMB1Protocol                                               
 choco install aspnetmvc4.install
 choco install ISAPIRewrite
+if (Test-PendingReboot) { Invoke-Reboot }
+choco install webdeploy
+choco install webpi
+choco install isapirewrite    
