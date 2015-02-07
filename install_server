@@ -7,16 +7,22 @@ $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a r
 Update-ExecutionPolicy Unrestricted
 Set-ExplorerOptions -showHidenFilesFoldersDrives -showProtectedOSFiles -showFileExtensions
 Disable-UAC # We re-enable at end of script
-Set-TaskbarOptions -Size Small
+
+#don't do it for now
+#Set-TaskbarOptions -Size Small
 
 if (Test-PendingReboot) { Invoke-Reboot }
  
-# Update Windows and reboot if necessary
-Install-WindowsUpdate -AcceptEula
+# Update Windows and reboot if necessary - don't do it for now
+#Install-WindowsUpdate -AcceptEula
+#if (Test-PendingReboot) { Invoke-Reboot }
+
+choco install dotnet4.5.2
 if (Test-PendingReboot) { Invoke-Reboot }
 
-choco install dotnet4.5.1
-choco install aspnetmvc4.install    
+choco install aspnetmvc4.install
+if (Test-PendingReboot) { Invoke-Reboot }
+
 choco windowsfeatures NetFx4ServerFeatures                                       
 choco windowsfeatures NetFx4                                                     
 choco windowsfeatures NetFx4Extended-ASPNET45                                    
@@ -70,12 +76,16 @@ choco windowsfeatures Server-Drivers-General
 choco windowsfeatures Server-Drivers-Printers                                    
 choco windowsfeatures SmbDirect                                                  
 choco windowsfeatures SMB1Protocol                                               
-choco install aspnetmvc4.install
+
 choco install ISAPIRewrite
 if (Test-PendingReboot) { Invoke-Reboot }
+
 choco install webdeploy
+if (Test-PendingReboot) { Invoke-Reboot }
+
 choco install webpi
-choco install isapirewrite    
+if (Test-PendingReboot) { Invoke-Reboot }
+
 
 Enable-UAC
 Update-ExecutionPolicy RemoteSigned
