@@ -1,0 +1,17 @@
+# Boxstarter options
+$Boxstarter.RebootOk=$true # Allow reboots?
+$Boxstarter.NoPassword=$false # Is this a machine with no login password?
+$Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
+
+# Basic setup
+Update-ExecutionPolicy RemoteSigned
+Set-ExplorerOptions -showHidenFilesFoldersDrives -showProtectedOSFiles -showFileExtensions
+Disable-UAC # We re-enable at end of script
+Set-TaskbarOptions -Size Small
+
+if (Test-PendingReboot) { Invoke-Reboot }
+ 
+# Update Windows and reboot if necessary
+Install-WindowsUpdate -AcceptEula
+if (Test-PendingReboot) { Invoke-Reboot }
+
